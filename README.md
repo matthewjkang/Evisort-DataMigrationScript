@@ -6,7 +6,7 @@
 3. Then open up your command line and cd into the directory (it should have 2 things : your target zip file and main.py).  
 4. run the command : python3 main.py 
 
-## What it does
+## What Does it Do?
 1. Recursively unzips the zip file, along with any zip files that are within it, until there are no more zip files.  
 2. Moves all PDF's into a folder at the top level.  
 3. Moves all CSV's into a folder at the top level.  
