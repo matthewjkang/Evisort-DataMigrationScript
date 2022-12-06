@@ -15,7 +15,7 @@ Output = Folder with renamed PDFs
 3. Then open up your command line and cd into the directory (it should have 2 things : your target zip file and main.py).  
 4. run the command : python3 main.py  
 
-**Usage Tutorial**: https://www.youtube.com/watch?v=D0IiFVivyAc
+**Usage Tutorial**: https://www.youtube.com/watch?v=D0IiFVivyAc  
  **Prerequisites:** Python3 and Pandas must be downloaded on your computer
 
 ## What Does it Do?
