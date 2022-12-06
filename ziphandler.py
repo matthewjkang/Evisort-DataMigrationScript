@@ -62,13 +62,13 @@ def move_pdf():
     ---
     """
     unzippedFileName = zipObj().zipf
-    if not os.path.exists('PDFs'):
-        os.makedirs('PDFs')
+    if not os.path.exists('Renamed_PDFs'):
+        os.makedirs('Renamed_PDFs')
 
     mydict = {}
     for path in Path(unzippedFileName).rglob('*.pdf'):
         docname = PurePath(path).parts[-1] # the prefix of the document, ex : 'SavingsAgreement.pdf'
-        newpath = os.path.join('PDFs',docname)
+        newpath = os.path.join('Renamed_PDFs',docname)
 
         if docname not in mydict:
             mydict[docname]=1
@@ -76,7 +76,7 @@ def move_pdf():
         else:
             mydict[docname]+=1
             name,ext = docname[:-4],docname[-4:] 
-            newpath = os.path.join( 'PDFs',name+'v'+str(mydict[docname])+ext) 
+            newpath = os.path.join( 'Renamed_PDFs',name+'v'+str(mydict[docname])+ext) 
             os.rename(path,newpath)
 
 def move_csv():

@@ -81,8 +81,8 @@ def csvDF():
 # move_csv()
 def moveAndRename():
     df = csvDF()
-    if not os.path.exists('PDFs'):
-        os.makedirs('PDFs')
+    if not os.path.exists('Renamed_PDFs'):
+        os.makedirs('Renamed_PDFs')
     for i in handleVersions(zipObj().folder):
         mystr = i
         splitstr = mystr.split('/')
@@ -91,6 +91,6 @@ def moveAndRename():
         internalid = docname.split('_',1)[0]
         title = df.loc[df['InternalId'] == internalid]['Title'].values[0]
 
-        newname = os.path.join('PDFs',internalid+"_"+cw+"_"+title)
+        newname = os.path.join('Renamed_PDFs',internalid+"_"+cw+"_"+title)
         os.rename(i,newname)
 

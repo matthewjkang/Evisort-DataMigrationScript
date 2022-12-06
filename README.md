@@ -23,9 +23,13 @@ Output = Folder with renamed PDFs
 2. Moves all PDF's into a folder at the top level.  
     - In cases with same document, different version numbers, only the highest version number is kept. 
 3. Moves all CSV's into a folder at the top level.  
+4. Creates a dataframe that maps InternalId to Document Title. 
+5. Looks at each PDF that needs to be renamed, searches for its correct Document Title given its InternalID, and renames the PDF.
 
-## TODO
-1. Create a dictionary that holds stores {"Document Name" : "Desired Document Rename"}. This must be extracted from specific CSV's
-2. Rename all the PDF's according to the dictionary. 
-3. Check if any CSV's are overwritten / lost due to same name. 
+## Known Limitations
+1. This will only work on data that comes in the format that SAP Ariba uses.
+2. Certain PDF's are unreadable, but this is because the actual PDF within the zipfile contains a broken PDF.
+    - Only occurs in certain documents that have a version number. The non-versioned PDF is valid though.
+    - I can fix this easily by using the non-versioned PDF.
+
 
