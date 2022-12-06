@@ -15,8 +15,8 @@ Output = Folder with renamed PDFs
 3. Then open up your command line and cd into the directory (it should have 2 things : your target zip file and main.py).  
 4. run the command : python3 main.py  
 
-**Limitiations and Precautions**: Do not give me a zip bomb 😐  
- **Prerequisites:** Python3 must be downloaded on your computer
+**Usage Tutorial**: https://www.youtube.com/watch?v=D0IiFVivyAc
+ **Prerequisites:** Python3 and Pandas must be downloaded on your computer
 
 ## What Does it Do?
 1. Recursively unzips the zip file, along with any zip files that are within it, until there are no more zip files.  
@@ -32,5 +32,5 @@ Output = Folder with renamed PDFs
 2. Certain PDF's are unreadable, but this is because the actual PDF within the zipfile contains a broken PDF.
     - Only occurs in certain documents that have a version number. The non-versioned PDF is valid though.
     - I can fix this easily by using the non-versioned PDF.
-
+3. Do not give me a zip bomb 😐
 
