@@ -32,5 +32,7 @@ Output = Folder with renamed PDFs
 2. Certain PDF's are unreadable, but this is because the actual PDF within the zipfile contains a broken PDF.
     - Only occurs in certain documents that have a version number. The non-versioned PDF is valid though.
     - I can fix this easily by using the non-versioned PDF.
-3. Do not give me a zip bomb 😐
-
+3. If you want to use it AGAIN, you have to delete everything that wasn't in the folder when you unzipped it.
+    - The Renamed_PDFs Folder, the CSVs Folder, the 13Batch Folder
+4. Gerry Wolfe gave me a good idea, built a script that pushes this directly to the Box Repository via API. 
+5. Do not give me a zip bomb 😐
