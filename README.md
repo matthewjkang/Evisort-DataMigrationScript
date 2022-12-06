@@ -20,11 +20,12 @@ Output = Folder with renamed PDFs
 
 ## What Does it Do?
 1. Recursively unzips the zip file, along with any zip files that are within it, until there are no more zip files.  
-2. Moves all PDF's into a folder at the top level.  
+2. Clean up PDFs throughout the file structure.  
     - In cases with same document, different version numbers, only the highest version number is kept. 
+    - Renames the PDF's according to the convention 'DocXXXXX_CWXXXXX_File_name.pdf'
 3. Moves all CSV's into a folder at the top level.  
-4. Creates a dataframe that maps InternalId to Document Title. 
-5. Looks at each PDF that needs to be renamed, searches for its correct Document Title given its InternalID, and renames the PDF.
+4. Aggregate those CSVs, create a dataframe that maps InternalId to Document Title. 
+5. Looks at each PDF that needs to be renamed, searches for its correct Document Title given its InternalID, and renames and moves the PDF.
 
 ## Known Limitations
 1. This will only work on data that comes in the format that SAP Ariba uses.
