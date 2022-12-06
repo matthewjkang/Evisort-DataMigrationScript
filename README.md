@@ -1,4 +1,5 @@
-# Evisort-ZipfileProcesser
+# Evisort-DataMigrationScript
+Takes a zip file, sent to us from Ariba, and reorganizes / renames key documents.
 
 ## Problem Statement
 * Given a zip file with more nested zip files inside, recursively unzip all zip files until the file structure contains no more zip files.  

@@ -2,26 +2,27 @@ import os
 from zipfile import ZipFile
 from pathlib import Path, PurePath
 
-def find_zipfile():
-    """Finds the first zip file in your directory that needs to be unzipped. There can only be one.
-    Parameters:
-        None
-    Returns:
-        zipfiles[0] (str) : a path to the first zipfile that you want to unpack
-    """
-    zipfiles = []
-    for i in os.listdir():
-        if i[-4:] == '.zip':
-            zipfiles.append(i)
-    if len(zipfiles) != 1:
-        return '''
-        You have more than one initial zipfile in this folder.
-        Make sure that there is only one zip file and start again'''
-    else:
-        return zipfiles[0]
+class zipObj: # Used to easily access zipfile name and folder name
+    def find_zipfile():
+        """Finds the first zip file in your directory that needs to be unzipped. There can only be one.
+        Parameters:
+            None
+        Returns:
+            zipfiles[0] (str) : a path to the first zipfile that you want to unpack
+        """
+        zipfiles = []
+        for i in os.listdir():
+            if i[-4:] == '.zip':
+                zipfiles.append(i)
+        if len(zipfiles) != 1:
+            return '''
+            You have more than one initial zipfile in this folder.
+            Make sure that there is only one zip file and start again'''
+        else:
+            return zipfiles[0]
 
-def find_zipFolder():
-    return find_zipfile()[:-4]
+    zipf = find_zipfile()
+    folder = find_zipfile()[:-4] # Folder is the name of the folder that comes from the extracted zipfile.
 
 def unpack_zip(zipfile='', path_from_local=''):
     """ Recursively unpack all nested zip files 
@@ -60,7 +61,7 @@ def move_pdf():
     "Signed Contract Documents.pdf" vs "Signed Contract Documentsv2.pdf"
     ---
     """
-    unzippedFileName = find_zipfile()[:-4]
+    unzippedFileName = zipObj().zipf
     if not os.path.exists('PDFs'):
         os.makedirs('PDFs')
 
@@ -92,7 +93,7 @@ def move_csv():
     "index.csv" vs "indexv2.csv"
     ---
     """
-    unzippedFileName = find_zipfile()[:-4]
+    unzippedFileName = zipObj().folder
     if not os.path.exists('CSVs'):
         os.makedirs('CSVs')
 

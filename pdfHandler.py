@@ -1,6 +1,8 @@
 from ziphandler import *
 from pathlib import Path, PurePath
 import os
+import re
+import pandas as pd
 
 """
 Problem : 
@@ -58,30 +60,37 @@ def handleVersions(unzippedFolderName):
 
     return final
 
+def csvDF(): 
+    # Input : None
+    # Output : A Pandas Dataframe containing data from ALL relevant CSV's
 
-import re
-import pandas as pd
+    move_csv() # This function requires move_csv() to have already been run
+    mergelist = []
+    for i in os.listdir('CSVs'):
+        csv = pd.read_csv(
+            os.path.join('CSVs',i)
+        )
+        if ("InternalId" in csv.columns) and ('Title' in csv.columns) and ('Location' in csv.columns):
+            mergelist.append(i)
 
-df = pd.read_csv('combined_csv.csv',index_col=False)
-# print(df.loc[df['InternalId'] == "Doc3437834677"]['Title'].values[0])
-# for i in handleVersions(find_zipFolder()):
-#     mystr = i
-#     splitstr = mystr.split('/')
+    combined_csv = pd.concat( [ pd.read_csv(os.path.join('CSVs',f)) for f in mergelist ] )
 
-#     docname = splitstr[-1][:-4]
-#     cw = set(re.findall( r'CW[0-9]{7}', mystr)).pop()
-#     title = df.loc[df['InternalId'] == docname]['Title']
-
-#     print(docname+"_"+cw+title)
+    return combined_csv
 
 
-for i in handleVersions(find_zipFolder()):
-    mystr = i
-    splitstr = mystr.split('/')
-    docname = splitstr[-1][:-4]
-    cw = set(re.findall( r'CW[0-9]{7}', mystr)).pop()
-    internalid = docname.split('_',1)[0]
-    title = df.loc[df['InternalId'] == internalid]['Title'].values[0]
-    print(i)
-    print(internalid+"_"+cw+"_"+title)
-    print()
+# move_csv()
+def moveAndRename():
+    df = csvDF()
+    if not os.path.exists('PDFs'):
+        os.makedirs('PDFs')
+    for i in handleVersions(zipObj().folder):
+        mystr = i
+        splitstr = mystr.split('/')
+        docname = splitstr[-1][:-4]
+        cw = set(re.findall( r'CW[0-9]{7}', mystr)).pop()
+        internalid = docname.split('_',1)[0]
+        title = df.loc[df['InternalId'] == internalid]['Title'].values[0]
+
+        newname = os.path.join('PDFs',internalid+"_"+cw+"_"+title)
+        os.rename(i,newname)
+
