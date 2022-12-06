@@ -20,9 +20,11 @@ Output = Folder with renamed PDFs
 ## What Does it Do?
 1. Recursively unzips the zip file, along with any zip files that are within it, until there are no more zip files.  
 2. Moves all PDF's into a folder at the top level.  
+    - In cases with same document, different version numbers, only the highest version number is kept. 
 3. Moves all CSV's into a folder at the top level.  
 
 ## TODO
 1. Create a dictionary that holds stores {"Document Name" : "Desired Document Rename"}. This must be extracted from specific CSV's
 2. Rename all the PDF's according to the dictionary. 
 3. Check if any CSV's are overwritten / lost due to same name. 
+

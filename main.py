@@ -1,7 +1,2 @@
-from ziphandler import *
-
-if __name__ == '__main__':
-    unpack_zip(find_zipfile())
-    move_csv()
-    move_pdf()
-    print(len(os.listdir('CSVs')))
+# if __name__ == '__main__':
+#     This file will be run at the very end. I will wait until completion to write this file. 
