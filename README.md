@@ -16,7 +16,7 @@ Output = Folder with renamed PDFs
 4. run the command : python3 main.py  
 
 **Usage Tutorial**: https://www.loom.com/share/da2fc7a15b9a404a93033a1019a17b7c  
- **Prerequisites:** Python3 and Pandas must be downloaded on your computer
+ **Prerequisites:** Python3, Pandas, and python-magic must be downloaded on your computer
 
 ## What Does it Do?
 1. Recursively unzips the zip file, along with any zip files that are within it, until there are no more zip files.  
