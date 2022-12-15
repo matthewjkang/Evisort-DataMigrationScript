@@ -4,3 +4,4 @@ PDFs/
 CSVs/
 13Batch/
 *.zip
+__pycache__/
