@@ -1,4 +1,4 @@
-from ziphandler import *
+from src.ziphandler import *
 from pathlib import Path, PurePath
 import os
 import re

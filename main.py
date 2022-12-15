@@ -1,6 +1,6 @@
-from ziphandler import *
-from pdfHandler import *
-
+from src.ziphandler import *
+from src.pdfHandler import *
+from src.checkinvalid import *
 '''
 1. find the zip file name
 2. recursively unpack the zip file
@@ -18,3 +18,4 @@ from pdfHandler import *
 if __name__ == '__main__':
     unpack_zip(zipObj().zipf)
     moveAndRename()
+    checkmime()
